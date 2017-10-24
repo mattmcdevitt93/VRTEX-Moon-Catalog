@@ -2,6 +2,7 @@ class CreateMoons < ActiveRecord::Migration
   def change
     create_table :moons do |t|
       t.integer :entry_id
+      t.integer :user_id
       t.string :product
       t.decimal :quantity, :precision => 8, :scale => 8
       t.integer :ore_type_id

@@ -4,7 +4,6 @@ var Module = Module || {};
 $(document).ready(function() {
 	console.log('Ready!')
 	Module.bindings();
-	// Module.getRegionsAll();
 });
 
 Module.bindings = function () {

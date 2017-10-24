@@ -7,6 +7,11 @@ class ToolboxController < ApplicationController
 	end
 	def dashboard
 
+		if params[:start_task] == 'true' and current_user.admin == true
+			Moon.Moon_Parse
+			redirect_to dashboard_path
+		end
+
 	end
 	def user_index
 		@user = User.paginate(:page => params[:page], :per_page => 50).order(id: :desc)

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  entry_id: 1
+  system_id: 1
+  system_esi: MyString
+  planet_id: 1
+  planet_esi: MyString
+  moon_id: 1
+  moon_esi: MyString
+  product_id: 1
+  product: MyString
+  percent: 9.99
+  status: 1
+  verified: false
+  flag: 1
+
+two:
+  user_id: 1
+  entry_id: 1
+  system_id: 1
+  system_esi: MyString
+  planet_id: 1
+  planet_esi: MyString
+  moon_id: 1
+  moon_esi: MyString
+  product_id: 1
+  product: MyString
+  percent: 9.99
+  status: 1
+  verified: false
+  flag: 1

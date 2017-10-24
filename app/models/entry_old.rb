@@ -43,7 +43,7 @@
 					scan_results[3] = EvE_Request("https://esi.tech.ccp.is/latest/universe/types/id/?datasource=singularity&language=en-us", scan_results[3])["name"]
 					scan_results[4] = EvE_Request("https://esi.tech.ccp.is/latest/universe/systems/id/?datasource=singularity&language=en-us", scan_results[4])["name"]
 					scan_results[5] = EvE_Request("https://esi.tech.ccp.is/latest/universe/planets/id/?datasource=singularity", scan_results[5])["name"]
-					scan_results[6] = EvE_Request("https://esi.tech.ccp.is/latest/universe/planets/id/?datasource=singularity", scan_results[6])["name"]
+					scan_results[6] = EvE_Request("https://esi.tech.ccp.is/latest/universe/moons/id/?datasource=singularity", scan_results[6])["name"]
 					if scan_results[5].first(5) == scan_results[6].first(6) && scan_results[5].first(5) == scan_results[7].first(5)
 						scan_results[0] = true
 					else

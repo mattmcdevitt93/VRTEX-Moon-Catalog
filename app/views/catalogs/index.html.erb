@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Catalogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Entry</th>
+      <th>System</th>
+      <th>System esi</th>
+      <th>Planet</th>
+      <th>Planet esi</th>
+      <th>Moon</th>
+      <th>Moon esi</th>
+      <th>Product</th>
+      <th>Product</th>
+      <th>Percent</th>
+      <th>Status</th>
+      <th>Verified</th>
+      <th>Flag</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @catalogs.each do |catalog| %>
+      <tr>
+        <td><%= catalog.user_id %></td>
+        <td><%= catalog.entry_id %></td>
+        <td><%= catalog.system_id %></td>
+        <td><%= catalog.system_esi %></td>
+        <td><%= catalog.planet_id %></td>
+        <td><%= catalog.planet_esi %></td>
+        <td><%= catalog.moon_id %></td>
+        <td><%= catalog.moon_esi %></td>
+        <td><%= catalog.product_id %></td>
+        <td><%= catalog.product %></td>
+        <td><%= catalog.percent %></td>
+        <td><%= catalog.status %></td>
+        <td><%= catalog.verified %></td>
+        <td><%= catalog.flag %></td>
+        <td><%= link_to 'Show', catalog %></td>
+        <td><%= link_to 'Edit', edit_catalog_path(catalog) %></td>
+        <td><%= link_to 'Destroy', catalog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Catalog', new_catalog_path %>

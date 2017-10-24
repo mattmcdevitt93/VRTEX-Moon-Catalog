@@ -1,0 +1,73 @@
+<%= form_for(@catalog) do |f| %>
+  <% if @catalog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@catalog.errors.count, "error") %> prohibited this catalog from being saved:</h2>
+
+      <ul>
+      <% @catalog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :entry_id %><br>
+    <%= f.number_field :entry_id %>
+  </div>
+  <div class="field">
+    <%= f.label :system_id %><br>
+    <%= f.number_field :system_id %>
+  </div>
+  <div class="field">
+    <%= f.label :system_esi %><br>
+    <%= f.text_field :system_esi %>
+  </div>
+  <div class="field">
+    <%= f.label :planet_id %><br>
+    <%= f.number_field :planet_id %>
+  </div>
+  <div class="field">
+    <%= f.label :planet_esi %><br>
+    <%= f.text_field :planet_esi %>
+  </div>
+  <div class="field">
+    <%= f.label :moon_id %><br>
+    <%= f.number_field :moon_id %>
+  </div>
+  <div class="field">
+    <%= f.label :moon_esi %><br>
+    <%= f.text_field :moon_esi %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product %><br>
+    <%= f.text_field :product %>
+  </div>
+  <div class="field">
+    <%= f.label :percent %><br>
+    <%= f.text_field :percent %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br>
+    <%= f.check_box :verified %>
+  </div>
+  <div class="field">
+    <%= f.label :flag %><br>
+    <%= f.number_field :flag %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

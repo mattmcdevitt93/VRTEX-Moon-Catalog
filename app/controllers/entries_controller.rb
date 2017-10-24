@@ -35,7 +35,7 @@ class EntriesController < ApplicationController
         if @entry.save
           format.html { redirect_to new_entry_path, notice: 'System Log was Created!' }
           format.json { render :show, status: :created, location: @entry }
-          Entry.format_check(entry_params[:content], @entry.id)
+          Entry.format_check(entry_params[:content], @entry.id, entry_params[:user])
         else
           format.html { render :new }
           format.json { render json: @entry.errors, status: :unprocessable_entity }

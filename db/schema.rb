@@ -11,14 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023215831) do
+ActiveRecord::Schema.define(version: 20171024155629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "catalogs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "entry_id"
+    t.integer  "system_id"
+    t.string   "system_esi"
+    t.integer  "planet_id"
+    t.string   "planet_esi"
+    t.integer  "moon_id"
+    t.string   "moon_esi"
+    t.integer  "product_id"
+    t.string   "product"
+    t.decimal  "percent",    precision: 8, scale: 8
+    t.integer  "status"
+    t.boolean  "verified"
+    t.integer  "flag"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
   create_table "entries", force: :cascade do |t|
     t.string   "content"
-    t.string   "user"
+    t.integer  "user"
     t.boolean  "format_check", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -26,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171023215831) do
 
   create_table "moons", force: :cascade do |t|
     t.integer  "entry_id"
+    t.integer  "user_id"
     t.string   "product"
     t.decimal  "quantity",    precision: 8, scale: 8
     t.integer  "ore_type_id"

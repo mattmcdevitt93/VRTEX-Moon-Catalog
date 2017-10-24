@@ -9,7 +9,9 @@ div {
 }
 
 .navbar {
-	background-color: rgba(0, 0, 0, 1) !important;
+	background-color: rgb(5, 20, 50) !important;
+
+	color: #a7a7a7 !important; 
 }
 
 .login {
