@@ -1,0 +1,40 @@
+
+<h1>Listing Moons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entry ID</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Ore type</th>
+      <th>System</th>
+      <th>Planet</th>
+      <th>Moon</th>
+      <th>Validation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moons.each do |moon| %>
+      <tr>
+        <td><%= moon.entry_id %></td>
+        <td><%= moon.product %> </td>
+        <td><%= moon.quantity %> | </td>
+        <td><%= moon.ore_type_id %> | </td>
+        <td><%= moon.system_id %> | </td>
+        <td><%= moon.planet_id %> | </td>
+        <td><%= moon.moon_id %> | </td>
+        <td><%= moon.validation %></td>
+        <td><%= link_to 'Show', moon %></td>
+        <td><%= link_to 'Edit', edit_moon_path(moon) %></td>
+        <td><%= link_to 'Destroy', moon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Moon', new_moon_path %>

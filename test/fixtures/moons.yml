@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: MyString
+  quantity: 1
+  ore_type_id: 1
+  system_id: 1
+  planet_id: 1
+  moon_id: 1
+
+two:
+  product: MyString
+  quantity: 1
+  ore_type_id: 1
+  system_id: 1
+  planet_id: 1
+  moon_id: 1

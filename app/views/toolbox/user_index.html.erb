@@ -1,0 +1,10 @@
+User Index
+<%= will_paginate @user, class: "float-right" %>
+
+	<% @user.each do |user| %>
+	<div>
+		<%= user.id %> | <%= user.email %> <% if user.admin == true %>*<% end %>
+
+	</div>
+
+	<% end %>

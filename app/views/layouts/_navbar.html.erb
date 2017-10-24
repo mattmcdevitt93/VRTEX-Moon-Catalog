@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <%= link_to root_path, class: "navbar-brand", 'data-toggle' => 'dropdown', 'role' => 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false' do  %>
+          VRTEX Moon Registry<span class="caret"></span>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Home', '/' %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Catalog', catalog_path %></li>
+            <li><%= link_to 'New Entry', new_entry_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Dashboard', dashboard_path %></li>
+            <li><%= link_to 'Entry Index', entries_path %></li>
+            <li><%= link_to 'Moon Index', moons_path %></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="login">
+        <% if user_signed_in? %>
+        <li>
+          Signed in as <%= current_user.email %>
+        </li>
+        <li>
+          <%= link_to('Edit Account', edit_user_registration_path) %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> | <%= current_user.id %>
+          <% if current_user.admin == true %>
+          Admin
+          <% end %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to('Login', new_user_session_path)  %>  
+        </li>
+        <li>
+          <%= link_to('Sign Up', new_user_registration_path)  %>
+        </li>
+        <% end %>
+      </div>
+      <div class="notice">
+        <p id="notice"><%= notice %></p>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

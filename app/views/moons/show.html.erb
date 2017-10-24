@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<strong>Product:</strong>
+  <%= @moon.entry_id %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= @moon.product %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @moon.quantity %>
+</p>
+
+<p>
+  <strong>Ore type:</strong>
+  <%= @moon.ore_type_id %>
+</p>
+
+<p>
+  <strong>System:</strong>
+  <%= @moon.system_id %>
+</p>
+
+<p>
+  <strong>Planet:</strong>
+  <%= @moon.planet_id %>
+</p>
+
+<p>
+  <strong>Moon:</strong>
+  <%= @moon.moon_id %>
+</p>
+
+<%= link_to 'Edit', edit_moon_path(@moon) %> |
+<%= link_to 'Back', moons_path %>

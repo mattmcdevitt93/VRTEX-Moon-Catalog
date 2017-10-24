@@ -1,0 +1,69 @@
+-Common Moon Ores-
+Cobaltite
+Copious Cobaltite
+Copious Euxenite
+Copious Scheelite
+Copious Titanite
+Euxenite
+Scheelite
+Titanite
+Twinkling Cobaltite
+Twinkling Euxenite
+Twinkling Scheelite
+Twinkling Titanite
+
+-Exceptional Moon Ores-
+Boundful Loparite
+Boundful Monazite
+Boundful Xenotime
+Boundful Ytterbite
+Loparite
+Monazite
+Shining Loparite
+Shining Monazite
+Shining Xenotime
+Shining Ytterbite
+Xenotime
+Ytterbite
+
+-Rare Moon Ores-
+Carnotite
+Cinnabar
+Glowing Carnotite
+Glowing Cinnabar
+Glowing Pollucite
+Glowing Zircon
+Pollucite
+Replete Carnotite
+Replete Cinnabar
+Replete Pollucite
+Replete Zircon
+Zircon
+
+-Ubiquitous Moon Ores-
+Bitumens
+Brimful Bitumens
+Brimful Coesite
+Brimful Sylvite
+Brimful Zeolites
+Coesite
+Glistening Bitumens
+Glistening Coesite
+Glistening Sylvite
+Glistening Zeolites
+Sylvite
+Zeolites
+
+-Uncommon Moon Ores-
+Chromite
+Lavish Chromite
+Lavish Otavite
+Lavish Sperrylite
+Lavish Vanadinite
+Otavite
+Shimmering Chromite
+Shimmering Otavite
+Shimmering Sperrylite
+Shimmering Vanadinite
+Sperrylite
+Vanadinite
