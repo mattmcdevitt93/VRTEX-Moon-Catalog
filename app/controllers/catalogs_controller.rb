@@ -6,7 +6,7 @@ class CatalogsController < ApplicationController
   # GET /catalogs
   # GET /catalogs.json
   def index
-    @catalogs = Catalog.all
+    @catalogs = Catalog.all.order(created_at: :desc)
   end
 
   # GET /catalogs/1

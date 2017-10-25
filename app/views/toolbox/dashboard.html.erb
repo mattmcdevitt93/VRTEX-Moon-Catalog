@@ -2,4 +2,9 @@ Dashboard
 <p>
 <%= link_to 'User Index', user_index_path %>
 </p>
-<%= link_to "Moon Parse", {:controller => "toolbox", :action => "dashboard", :start_task => true }, class: "", id: "" %>
+<p>
+<%= link_to "Moon Parse", {:controller => "toolbox", :action => "dashboard", :moon_parse => true }, class: "", id: "" %>
+</p>
+<p>
+<%= link_to "Catalog Parse", {:controller => "toolbox", :action => "dashboard", :catalog_parse => true }, class: "", id: "" %>
+</p>

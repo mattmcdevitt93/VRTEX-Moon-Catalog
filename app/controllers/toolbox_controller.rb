@@ -7,8 +7,13 @@ class ToolboxController < ApplicationController
 	end
 	def dashboard
 
-		if params[:start_task] == 'true' and current_user.admin == true
+		if params[:moon_parse] == 'true' and current_user.admin == true
 			Moon.Moon_Parse
+			redirect_to dashboard_path
+		end
+
+		if params[:catalog_parse] == 'true' and current_user.admin == true
+			Catalog.catalog_parse
 			redirect_to dashboard_path
 		end
 
@@ -18,5 +23,8 @@ class ToolboxController < ApplicationController
 	end
 	def catalog
 		
+	end
+	def search
+
 	end
 end

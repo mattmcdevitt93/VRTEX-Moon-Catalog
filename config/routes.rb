@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :moons
   get '/dashboard' => 'toolbox#dashboard'
   get '/user_index' => 'toolbox#user_index'
-  get '/search' => 'toolbox#catalog'
+  get '/search' => 'toolbox#search'
   get '/' => 'toolbox#landing'
 
 

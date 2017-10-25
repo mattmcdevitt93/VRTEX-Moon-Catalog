@@ -9,13 +9,22 @@
           <ul class="dropdown-menu">
             <li><%= link_to 'Home', '/' %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Catalog', search_path %></li>
+            <li><%= link_to 'Catalog' %></li>
+
+            <li>
+              <div class="input-group">
+              <input type="text" class="form-control" placeholder="Work In Progress" aria-describedby="basic-addon2" id='search-area'>
+              <%= link_to "<span>Search</span>".html_safe, search_path('Pudding'), class: 'input-group-addon', id: 'basic-addon2' %>
+              </div>
+            </li>
             <li><%= link_to 'New Entry', new_entry_path %></li>
+            <% if current_user.admin == true %>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Dashboard', dashboard_path %></li>
             <li><%= link_to 'Entry Index', entries_path %></li>
             <li><%= link_to 'Moon Index', moons_path %></li>
             <li><%= link_to 'Catalog Index', catalogs_path %></li>
+            <% end %>
           </ul>
         </li>
       </ul>
