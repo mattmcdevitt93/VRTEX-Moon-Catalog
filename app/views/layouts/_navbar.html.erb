@@ -18,12 +18,14 @@
               </div>
             </li>
             <li><%= link_to 'New Entry', new_entry_path %></li>
-            <% if current_user.admin == true %>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to 'Dashboard', dashboard_path %></li>
-            <li><%= link_to 'Entry Index', entries_path %></li>
-            <li><%= link_to 'Moon Index', moons_path %></li>
-            <li><%= link_to 'Catalog Index', catalogs_path %></li>
+            <% if current_user.blank? == false %>
+              <% if current_user.admin == true %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Dashboard', dashboard_path %></li>
+                <li><%= link_to 'Entry Index', entries_path %></li>
+                <li><%= link_to 'Moon Index', moons_path %></li>
+                <li><%= link_to 'Catalog Index', catalogs_path %></li>
+              <% end %>
             <% end %>
           </ul>
         </li>
