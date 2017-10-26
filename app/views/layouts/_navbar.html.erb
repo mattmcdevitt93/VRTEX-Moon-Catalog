@@ -9,14 +9,18 @@
           <ul class="dropdown-menu">
             <li><%= link_to 'Home', '/' %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Catalog' %></li>
-
+            <li><%= link_to 'Catalog', search_path %></li>
             <li>
               <div class="input-group">
-              <input type="text" class="form-control" placeholder="Work In Progress" aria-describedby="basic-addon2" id='search-area'>
-              <%= link_to "<span>Search</span>".html_safe, search_path('Pudding'), class: 'input-group-addon', id: 'basic-addon2' %>
-              </div>
+              <%= form_tag(search_path, :method => "get", id: "search-form", class: 'input-group') do %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search ", :class => 'form-control', :id => 'search-area', :type => 'text', aria:{describedby: 'basic-addon2'} %>
+                  <%= button_tag(:name => nil, class: 'input-group-addon', id: 'basic-addon2') do %>
+                    <span>Search</span>
+                  <% end %>
+              <% end %>
+            </div>
             </li>
+
             <li><%= link_to 'New Entry', new_entry_path %></li>
             <% if current_user.blank? == false %>
               <% if current_user.admin == true %>

@@ -10,6 +10,37 @@ Module.bindings = function () {
 
 }
 
+// Module.chart_load = function (name, data) {
+// google.charts.load('current', {'packages':['corechart']});
+// google.charts.setOnLoadCallback(drawChart);
+// 	var s = data.split("~");
+// 	var chart_data = []
+// 	chart_data.push(['Moon', 'Percent of Materials']);
+// 	// console.log(s);
+// 	for (var i = s.length - 1; i >= 0; i--) {
+// 		var ss = s[i].split(",")
+// 		ss[1] = parseInt(ss[1])
+// 		if (ss[0] != [""]) {
+// 			chart_data.push(ss);
+// 		}
+// 		// console.log(ss);
+// 	}
+// 	// console.log(chart_data);
+
+// // Draw the chart and set the chart values
+// 	function drawChart(data) {
+// 	// console.log(chart_data); 
+// 	  var data = google.visualization.arrayToDataTable(chart_data);
+
+// 	  // Optional; add a title and set the width and height of the chart
+// 	  var options = {'title':name, 'width':400, 'height':250, pieHole: 0.75, pieSliceText: 'none'};
+// 	  // Display the chart inside the <div> element with id="piechart"
+// 	  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+// 	  chart.draw(data, options);
+// 	}
+
+// }
+
 // Module.sliderBindings = function (slider_id, handle) {
 // 		slider_id.slider( {
 // 		create: function() {

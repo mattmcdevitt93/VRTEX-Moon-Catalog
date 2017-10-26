@@ -8,6 +8,15 @@ div {
 	padding: 5px;
 }
 
+td {
+	padding: 5px !important;
+	border-bottom: 1px solid #000;
+}
+
+#basic-addon2 {
+	width: 100% !important;
+}
+
 .navbar {
 	background-color: rgb(5, 20, 50) !important;
 
@@ -41,4 +50,38 @@ div {
 .slider {
 	margin-top: 30px;
 	/*width: 15%;*/
+}
+
+.card-body {
+	/*min-height: 100px;*/
+	min-width: 450px;
+}
+
+.moon_data {
+	max-width: 500px;
+	margin: 0px;
+}
+
+.material_rock {
+	background-color: LightGrey  !important;
+}
+
+.material_R4 {
+	background-color: LightSlateGrey  !important;
+}
+
+.material_R8 {
+	background-color: green !important;
+}
+
+.material_R16 {
+	background-color: blue !important;
+}
+
+.material_R32 {
+	background-color: purple !important;
+}
+
+.material_R64 {
+	background-color: orange !important;
 }
