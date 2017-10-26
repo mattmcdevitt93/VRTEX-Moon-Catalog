@@ -1,6 +1,6 @@
 class ToolboxController < ApplicationController
-	before_filter :authenticate_user!, only: [:dashboard, :user_index, :catalog]
-	before_action :admin_check, only: [:user_index, :dashboard, :search]
+	before_filter :authenticate_user!, only: [:dashboard, :user_index, :catalog, :search]
+	before_action :admin_check, only: [:user_index, :dashboard]
 
 	def landing
 		
