@@ -1,6 +1,6 @@
 class ToolboxController < ApplicationController
 	before_filter :authenticate_user!, only: [:dashboard, :user_index, :catalog]
-	before_action :admin_check, only: [:user_index, :dashboard]
+	before_action :admin_check, only: [:user_index, :dashboard, :search]
 
 	def landing
 		
@@ -24,7 +24,6 @@ class ToolboxController < ApplicationController
 	def catalog
 		
 	end
-
 	def search
 		if params[:search] != nil
 			Rails.logger.info 'Search Check: ' +  params[:search].to_s
