@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @universe.region_id %>
+</p>
+
+<p>
+  <strong>Region name:</strong>
+  <%= @universe.region_name %>
+</p>
+
+<p>
+  <strong>Constellation:</strong>
+  <%= @universe.constellation_id %>
+</p>
+
+<p>
+  <strong>Constellation name:</strong>
+  <%= @universe.constellation_name %>
+</p>
+
+<p>
+  <strong>System:</strong>
+  <%= @universe.system_id %>
+</p>
+
+<p>
+  <strong>System name:</strong>
+  <%= @universe.system_name %>
+</p>
+
+<%= link_to 'Edit', edit_universe_path(@universe) %> |
+<%= link_to 'Back', universes_path %>

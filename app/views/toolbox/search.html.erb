@@ -5,7 +5,4 @@
 	<% @mapped_results.each do |catalog| %>
 		<%= render 'moon_graph', :@data => catalog, :@entry => @entry_results %>
 	<% end %>
-<% else %>
-<%= render :partial => 'toolbox/regions' %>
-
 <% end %>

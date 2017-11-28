@@ -8,3 +8,9 @@ Dashboard
 <p>
 <%= link_to "Catalog Parse", {:controller => "toolbox", :action => "dashboard", :catalog_parse => true }, class: "", id: "" %>
 </p>
+<p>
+<%= link_to "Universe List Compile", {:controller => "toolbox", :action => "dashboard", :universe_update => true }, class: "", id: "" %>
+</p>
+<p>
+	<%= link_to 'Universe Index', universes_path %>
+</p>

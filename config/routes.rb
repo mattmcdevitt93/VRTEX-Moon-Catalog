@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :universes
   resources :catalogs
   devise_for :users
   resources :moons
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   get '/dashboard' => 'toolbox#dashboard'
   get '/user_index' => 'toolbox#user_index'
   get '/search' => 'toolbox#search'
+  get '/regions' => 'toolbox#regions'
+  get '/systems' => 'toolbox#systems'
   get '/' => 'toolbox#landing'
 
 

@@ -18,7 +18,7 @@ td {
 }
 
 .pagination {
-	
+
 }
 
 .navbar {
@@ -64,6 +64,10 @@ td {
 .moon_data {
 	max-width: 500px;
 	margin: 0px;
+}
+
+.well {
+	padding: 0px !important;
 }
 
 .material_rock {

@@ -1,0 +1,41 @@
+<%= form_for(@universe) do |f| %>
+  <% if @universe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@universe.errors.count, "error") %> prohibited this universe from being saved:</h2>
+
+      <ul>
+      <% @universe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :region_id %><br>
+    <%= f.number_field :region_id %>
+  </div>
+  <div class="field">
+    <%= f.label :region_name %><br>
+    <%= f.text_field :region_name %>
+  </div>
+  <div class="field">
+    <%= f.label :constellation_id %><br>
+    <%= f.number_field :constellation_id %>
+  </div>
+  <div class="field">
+    <%= f.label :constellation_name %><br>
+    <%= f.text_field :constellation_name %>
+  </div>
+  <div class="field">
+    <%= f.label :system_id %><br>
+    <%= f.number_field :system_id %>
+  </div>
+  <div class="field">
+    <%= f.label :system_name %><br>
+    <%= f.text_field :system_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
