@@ -40,6 +40,26 @@ class ToolboxController < ApplicationController
 			@results = Catalog.paginate(:page => params[:page], :per_page => 75).where("system_esi LIKE ?", "#{params[:search]}").where.not('status' => nil || 3).order(moon_esi: :desc)
 			@entry_results = @results.map(&:entry_id).uniq
 			@mapped_results = @results.map(&:moon_id).uniq
+
+			@material_results = Catalog.where("system_esi LIKE ?", "#{params[:search]}").where.not('status' => nil || 3).order(moon_esi: :desc).map(&:product).uniq
+			@material_array = [[],[],[],[],[],[]]
+			@material_results.each_with_index do |material, i|
+				check = Toolbox.material_check(material)
+				if check == 'material_R64'
+					@material_array[5].push(material)
+				elsif check == 'material_R32'
+					@material_array[4].push(material)
+				elsif check == 'material_R16'
+					@material_array[3].push(material)
+				elsif check == 'material_R8'
+					@material_array[2].push(material)
+				elsif check == 'material_R4'
+					@material_array[1].push(material)
+				elsif check == 'material_rock'
+					@material_array[0].push(material)
+				end
+
+			end
 		# else
 		# 	Rails.logger.info 'Region Check'
 		# 	# @region_list = Toolbox.EvE_Request('https://esi.tech.ccp.is/latest/universe/regions/?datasource=singularity', nil)
@@ -52,11 +72,11 @@ class ToolboxController < ApplicationController
 
 	end
 	def regions
-		@test = 'Local Regions'
+		# @test = 'Local Regions'
 	end
 	def systems
 
-		@systems = Universe.where('region_id' => params[:region])
+		@systems = Universe.where('region_id' => params[:region]).order(system_name: :asc)
 
 		# @region_list = Toolbox.EvE_Request('https://esi.tech.ccp.is/latest/universe/regions/id/?datasource=singularity&language=en-us', params[:region])
 		# Rails.logger.info @region_list.to_s

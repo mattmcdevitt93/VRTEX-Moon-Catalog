@@ -22,9 +22,9 @@ class Toolbox < ActiveRecord::Base
 	end
 
 	def self.material_check (data)
-		Rails.logger.info "Material Check: " + data.to_s
+		# Rails.logger.info "Material Check: " + data.to_s
 		if data.to_s.include?("Mercoxit")  || data.to_s.include?("Arkonor") || data.to_s.include?("Bistot") || data.to_s.include?("Crokite") || data.to_s.include?("Gneiss") || data.to_s.include?("Spodumain") || data.to_s.include?("Ochre")  || data.to_s.include?("Hemorphite") || data.to_s.include?("Hedbergite") || data.to_s.include?("Jaspet") || data.to_s.include?("Kernite") || data.to_s.include?("Omber") || data.to_s.include?("Plagioclase") || data.to_s.include?("Pyroxeres") || data.to_s.include?("Scordite") || data.to_s.include?("Veldspar")
-			Rails.logger.info "Material Check: Rock"
+			# Rails.logger.info "Material Check: Rock"
 			return 'material_rock'
 		end
 		if data.to_s.include?("Bitumens") || data.to_s.include?("Coesite") || data.to_s.include?("Sylvite") || data.to_s.include?("Zeolites")
@@ -65,7 +65,6 @@ class Toolbox < ActiveRecord::Base
 						u.constellation_name = @const_details['name'].to_s
 						u.system_id = @system_details['system_id'].to_s
 						u.system_name = @system_details['name'].to_s
-
 					end
 				universe_entry.save
 				end

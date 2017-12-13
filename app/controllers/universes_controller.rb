@@ -4,7 +4,7 @@ class UniversesController < ApplicationController
   # GET /universes
   # GET /universes.json
   def index
-    @universes = Universe.all
+    @universes = Universe.all.paginate(:page => params[:page], :per_page => 50)
   end
 
   # GET /universes/1

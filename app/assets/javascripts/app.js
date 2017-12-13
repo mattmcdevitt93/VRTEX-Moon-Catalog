@@ -8,6 +8,61 @@ $(document).ready(function() {
 
 Module.bindings = function () {
 
+	$( "#material_rock_hov" ).hover(
+		function() {
+			console.log('Hover On!')
+			$(".material_rock_exp").css("display", "inline")
+		}, function() {
+			console.log('Hover Off!')
+			$(".material_rock_exp").css("display", "none")
+		}
+	);
+	$( "#material_R4_hov" ).hover(
+		function() {
+			console.log('Hover On!')
+			$(".material_R4_exp").css("display", "inline")
+		}, function() {
+			console.log('Hover Off!')
+			$(".material_R4_exp").css("display", "none")
+		}
+	);
+	$( "#material_R8_hov" ).hover(
+		function() {
+			console.log('Hover On!')
+			$(".material_R8_exp").css("display", "inline")
+		}, function() {
+			console.log('Hover Off!')
+			$(".material_R8_exp").css("display", "none")
+		}
+	);
+	$( "#material_R16_hov" ).hover(
+		function() {
+			console.log('Hover On!')
+			$(".material_R16_exp").css("display", "inline")
+		}, function() {
+			console.log('Hover Off!')
+			$(".material_R16_exp").css("display", "none")
+		}
+	);
+	$( "#material_R32_hov" ).hover(
+		function() {
+			console.log('Hover On!')
+			$(".material_R32_exp").css("display", "inline")
+		}, function() {
+			console.log('Hover Off!')
+			$(".material_R32_exp").css("display", "none")
+		}
+	);
+	$( "#material_R64_hov" ).hover(
+		function() {
+			console.log('Hover On!')
+			$(".material_R64_exp").css("display", "inline")
+		}, function() {
+			console.log('Hover Off!')
+			$(".material_R64_exp").css("display", "none")
+		}
+	);
+
 }
 
 // Module.chart_load = function (name, data) {

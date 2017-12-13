@@ -15,7 +15,8 @@ class EntriesController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
     # check = Entry.format_check(@entry[:content])
-
+    @user = User.find(@entry.user)
+    @report = Catalog.paginate(:page => params[:page], :per_page => 75).where('entry_id' => params[:id]).order(id: :asc)
   end
 
   # GET /entries/new

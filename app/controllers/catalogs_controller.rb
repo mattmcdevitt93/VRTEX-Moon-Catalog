@@ -6,7 +6,7 @@ class CatalogsController < ApplicationController
   # GET /catalogs
   # GET /catalogs.json
   def index
-    @catalogs = Catalog.all.order(created_at: :desc)
+    @catalogs = Catalog.all.paginate(:page => params[:page], :per_page => 75).order(id: :desc)
   end
 
   # GET /catalogs/1

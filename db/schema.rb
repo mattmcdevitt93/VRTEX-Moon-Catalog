@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20171115193058) do
     t.string   "constellation_name"
     t.integer  "system_id"
     t.string   "system_name"
+    t.boolean  "content"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

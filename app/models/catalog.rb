@@ -19,6 +19,8 @@ class Catalog < ActiveRecord::Base
 				# Get the number of entries that include this object.
 				@target_moon.each do |target|
 					Rails.logger.info target.moon_esi.to_s + " | " + target.percent.to_s +  " | " + target.product_id.to_s + " | " + target.entry_id.to_s
+					Universe.universe_update(target.system_id.to_i)
+
 					@entry_array.push(target.entry_id)
 					@product_array.push(target.product_id)
 				end

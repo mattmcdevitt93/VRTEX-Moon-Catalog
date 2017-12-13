@@ -10,6 +10,8 @@ class CreateUniverses < ActiveRecord::Migration
       t.integer :system_id
       t.string :system_name
 
+      t.boolean :content
+
       t.timestamps null: false
     end
   end

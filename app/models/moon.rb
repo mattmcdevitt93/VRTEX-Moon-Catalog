@@ -10,7 +10,7 @@ class Moon < ActiveRecord::Base
 			valid = true
 			Rails.logger.info "========================================"
 
-			Rails.logger.info moon.entry_id.to_s + " | " +  moon.product.to_s
+			# Rails.logger.info moon.entry_id.to_s + " | " +  moon.product.to_s
 			esi_product = Toolbox.EvE_Request("https://esi.tech.ccp.is/latest/universe/types/id/?datasource=singularity&language=en-us", moon.ore_type_id.to_s)["name"]
 			esi_system = Toolbox.EvE_Request("https://esi.tech.ccp.is/latest/universe/systems/id/?datasource=singularity&language=en-us", moon.system_id.to_s)["name"]
 			esi_planet = Toolbox.EvE_Request("https://esi.tech.ccp.is/latest/universe/planets/id/?datasource=singularity", moon.planet_id.to_s)["name"]
@@ -43,6 +43,7 @@ class Moon < ActiveRecord::Base
 					u.product_id = moon.ore_type_id.to_i
 					u.product = esi_product
 					u.percent = moon.quantity
+					# Universe.universe_update(moon.system_id.to_i)
 				end
 				catalog_entry.save
 

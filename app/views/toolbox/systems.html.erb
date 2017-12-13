@@ -4,7 +4,11 @@ System List
 <tr class="row">
 <% @systems.each_with_index do |i, index| %>
 <th class="well col-md-2">
-	<%= link_to i.system_name.to_s, {:controller => "toolbox", :action => "search", :search => i.system_name.to_s }, class: "", id: "" %>
+	<% if i.content == true %>
+		<%= link_to i.system_name.to_s, {:controller => "toolbox", :action => "search", :search => i.system_name.to_s }, class: "", id: "" %>
+	<% else %>
+		<%= link_to i.system_name.to_s, {:controller => "toolbox", :action => "search", :search => i.system_name.to_s }, class: "inactive", id: "" %>
+	<% end %>
 	<% if 0 == (index+1) % 6 %>
 	</tr><tr class="row">
 	<% end %>

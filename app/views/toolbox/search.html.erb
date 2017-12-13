@@ -2,7 +2,31 @@
 <h1>Search List</h1>
 <%= will_paginate @results %>
 <% @mapped_results = @results.map(&:moon_id).uniq %>
+	<div class="row wrapper">
+
+		<div id='material_rock_hov' class="col-md-2 material_rock" >Regular Rocks</div>
+		<div id='material_R4_hov' class="col-md-2 material_R4 ">R4 Materials (Gas pairs)</div>
+		<div id='material_R8_hov' class="col-md-2 material_R8 ">R8 Materials</div>
+		<div id='material_R16_hov' class="col-md-2 material_R16 ">R16 Materials</div>
+		<div id='material_R32_hov' class="col-md-2 material_R32 ">R32 Materials</div>
+		<div id='material_R64_hov' class="col-md-2 material_R64 ">R64 Materials</div>
+
+			<% @material_array.each do |i| %>
+				<% if i == [] %>
+				<% i.push("None") %>
+				<% end %>
+			<% end %>
+			<div class="col-md-12 material_rock_exp "><%= @material_array[0].to_s.gsub(/"|\[|\]/, '') %></div>
+			<div class="col-md-12 material_R4_exp "><%= @material_array[1].to_s.gsub(/"|\[|\]/, '') %></div>
+			<div class="col-md-12 material_R8_exp "><%= @material_array[2].to_s.gsub(/"|\[|\]/, '') %></div>
+			<div class="col-md-12 material_R16_exp "><%= @material_array[3].to_s.gsub(/"|\[|\]/, '') %></div>
+			<div class="col-md-12 material_R32_exp "><%= @material_array[4].to_s.gsub(/"|\[|\]/, '') %></div>
+			<div class="col-md-12 material_R64_exp "><%= @material_array[5].to_s.gsub(/"|\[|\]/, '') %></div>
+
+	</div>
 	<% @mapped_results.each do |catalog| %>
 		<%= render 'moon_graph', :@data => catalog, :@entry => @entry_results %>
 	<% end %>
 <% end %>
+<%= will_paginate @results %>
+

@@ -68,28 +68,119 @@ td {
 
 .well {
 	padding: 0px !important;
+	font-size: 16px;
+	text-align: center;
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+
+}
+
+.inactive {
+	color: lightgrey !important;
+}
+
+.wrapper {
+	margin-bottom: 15px;
+	height: 100px;
 }
 
 .material_rock {
-	background-color: LightGrey  !important;
+	background-color: #D3D3D3  !important;
+	border-top-left-radius: 5px;
+}
+.material_rock:hover {
+	background-color: #B3B3B3  !important;
+}
+.material_rock_exp {
+	background-color: #B3B3B3  !important;
+	padding: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	display: none;
 }
 
 .material_R4 {
-	background-color: LightSlateGrey  !important;
+	background-color: #778899  !important;
+}
+.material_R4:hover  {
+	background-color: #556677 !important;
+	color: #ffffff;
+}
+.material_R4_exp {
+	background-color: #556677  !important;
+	padding: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: #ffffff;
+	display: none;
 }
 
 .material_R8 {
 	background-color: green !important;
 }
+.material_R8:hover {
+	background-color: #006400 !important;
+	color: #ffffff;
+}
+.material_R8_exp {
+	background-color: #006400  !important;
+	padding: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: #ffffff;
+	display: none;
+}
 
 .material_R16 {
-	background-color: blue !important;
+	background-color: #0000FF !important;
+}
+.material_R16:hover {
+	background-color: #00008B !important;
+	color: #ffffff;
+}
+.material_R16_exp {
+	background-color: #00008B  !important;
+	padding: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: #ffffff;
+	display: none;
 }
 
 .material_R32 {
-	background-color: purple !important;
+	background-color: #800080 !important;
+}
+.material_R32:hover {
+	background-color: #500050  !important;
+	color: #ffffff;
+}
+.material_R32_exp {
+	background-color: #500050  !important;
+	padding: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: #ffffff;
+	display: none;
 }
 
 .material_R64 {
-	background-color: orange !important;
+	background-color: #FFA500 !important;
+	border-top-right-radius: 5px;
+
+}
+.material_R64:hover {
+	background-color: #FF8C00 !important;
+	color: #ffffff;
+}
+.material_R64_exp {
+	background-color: #FF8C00  !important;
+	padding: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: #ffffff;
+	display: none;
+}
+
+.material_listing {
+	padding: 2px;
 }

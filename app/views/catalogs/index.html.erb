@@ -1,8 +1,10 @@
 <h1>Listing Catalogs</h1>
+<%= will_paginate @catalogs, class: "float-left" %>
 
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>User</th>
       <th>Entry</th>
       <th>System</th>
@@ -24,6 +26,7 @@
   <tbody>
     <% @catalogs.each do |catalog| %>
       <tr>
+        <td><%= catalog.id %></td>
         <td><%= catalog.user_id %></td>
         <td><%= catalog.entry_id %></td>
         <td><%= catalog.system_id %></td>
@@ -45,7 +48,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Catalog', new_catalog_path %>

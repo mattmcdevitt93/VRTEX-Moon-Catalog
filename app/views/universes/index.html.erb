@@ -1,16 +1,18 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Listing Universes</h1>
+<%= will_paginate @universes, class: "float-right" %>
 
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Region</th>
       <th>Region name</th>
       <th>Constellation</th>
       <th>Constellation name</th>
       <th>System</th>
       <th>System name</th>
+      <th>Content?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +20,14 @@
   <tbody>
     <% @universes.each do |universe| %>
       <tr>
+        <td><%= universe.id %></td>
         <td><%= universe.region_id %></td>
         <td><%= universe.region_name %></td>
         <td><%= universe.constellation_id %></td>
         <td><%= universe.constellation_name %></td>
         <td><%= universe.system_id %></td>
         <td><%= universe.system_name %></td>
+        <td><%= universe.content %></td>
         <td><%= link_to 'Show', universe %></td>
         <td><%= link_to 'Edit', edit_universe_path(universe) %></td>
         <td><%= link_to 'Destroy', universe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
