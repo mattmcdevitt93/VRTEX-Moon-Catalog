@@ -1,0 +1,67 @@
+<h2>Flagged Entries</h2>
+<%= will_paginate @catalog %>
+
+<% if @catalog.blank? == true %>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>User</th>
+	      <th>Entry</th>
+	      <th>System</th>
+	      <th>System esi</th>
+	      <th>Planet</th>
+	      <th>Planet esi</th>
+	      <th>Moon</th>
+	      <th>Moon esi</th>
+	      <th>Product</th>
+	      <th>Product</th>
+	      <th>Percent</th>
+	      <th>Status</th>
+	      <th>Verified</th>
+	      <th>Flag</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @catalogs.each do |catalog| %>
+
+			<% if @previous_entry != catalog.product_id && @previous_entry != nil %>
+				<tr>
+					<td colspan="20"></td>
+				</tr>
+			<% end %>
+
+			<tr class='flagged_row'>
+				<td><%= catalog.id %></td>
+				<td><%= catalog.user_id %></td>
+				<td><%= catalog.entry_id %></td>
+				<td><%= catalog.system_id %></td>
+				<td><%= catalog.system_esi %></td>
+				<td><%= catalog.planet_id %></td>
+				<td><%= catalog.planet_esi %></td>
+				<td><%= catalog.moon_id %></td>
+				<td><%= catalog.moon_esi %></td>
+				<td><%= catalog.product_id %></td>
+				<td><%= catalog.product %></td>
+				<td><%= catalog.percent %></td>
+				<td><%= catalog.status %></td>
+				<td><%= catalog.verified %></td>
+				<td><%= catalog.flag %></td>
+				<td><%= link_to "Approve Entry", {:controller => "toolbox", :action => "flagged", :flagged_post => catalog.id }, class: "btn btn-warning", id: "" %>
+				</td>
+				<td><%= link_to 'Delete Entry', catalog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", id: "" %></td>
+
+			</tr>
+
+
+			<% @previous_entry = catalog.product_id %>
+
+	    <% end %>
+	  </tbody>
+	</table>
+<% else %>
+<strong>No flagged entries.</strong>
+<%= link_to 'Back', :back, class: "btn btn-default", id: "" %>
+<% end %>

@@ -1,0 +1,19 @@
+<h2>User Dashboard</h2>
+<%= will_paginate @user %>
+
+<% @user.each_with_index do |user, i| %>
+<div class='row'>
+	<%= form_for user do |f| %>
+		<div class='col-md-10'>
+		<%= user.id.to_s %> | 
+		<%= user.email.to_s %> | 
+		<%= f.hidden_field :id %>
+		<% @entries = Entry.where('user' => user.id) %>
+		Entries: <%= @entries.to_s %>
+		Blacklist: <%= f.check_box :blacklist %> | 
+		Admin: <%= f.check_box :admin %>
+		</div>
+		<%= f.submit "Update", :class => "btn btn-default float-right", data: { confirm: 'Are you sure you want to do this)?' } %>
+	<% end %>
+</div>
+<% end %>

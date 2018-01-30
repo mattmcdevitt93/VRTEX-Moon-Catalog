@@ -1,6 +1,6 @@
-<% if @mapped_results != nil  %>
+<h1>My Entries</h1>
+<% if @mapped_results != nil && @mapped_results.blank? != true  %>
 <%= will_paginate @results %>
-<% @mapped_results = @results.map(&:moon_id).uniq %>
 	<div class="row wrapper">
 
 		<div id='material_rock_hov' class="col-md-2 material_rock" >Regular Rocks</div>
@@ -28,4 +28,6 @@
 	<% end %>
 <% end %>
 <%= will_paginate @results %>
-
+<% if @mapped_results.blank? == true %>
+<h3>Go scan some moons dumby!</h3>
+<% end %>

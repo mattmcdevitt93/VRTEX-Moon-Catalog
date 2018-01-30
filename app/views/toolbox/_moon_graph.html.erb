@@ -5,7 +5,7 @@
 <% @catalog_data.each do |data| %>
 	<% if @catalog_data[0].entry_id == data.entry_id %>
 	<% @moon_product_array.push([data.product.to_s, number_to_percentage(data.percent*100).to_f.round(2).to_s]) %>
-	<% @moon_output = @moon_output + "<div class='moon_data'>" + data.product.to_s + " | " + number_to_percentage(data.percent*100).to_f.round(2).to_s + "</div>" %>
+	<% @moon_output = @moon_output + "<div class='moon_data'>" + data.product.to_s + " | % " + number_to_percentage(data.percent*100).to_f.round(2).to_s + "</div>" %>
 	<% end %>
 <% end %>
 
@@ -14,7 +14,14 @@
 	<div class="card-header" role="tab" id="heading_<%= @data.to_s %>">
 		<h5 class="mb-0">
 			<div class="collapsed" data-toggle="collapse" href="#collapse_<%= @data.to_s %>" aria-expanded="false" aria-controls="collapse_<%= @data.to_s %>">
-				<%= @moon_data.moon_esi.to_s %> | <%= @moon_data.status.to_s %>
+				<%= @moon_data.moon_esi.to_s %> (<%= @moon_data.moon_id %>) | 
+				<% if @moon_data.status == 1 %>
+				<span class="badge" title='Individual Entry'>⚑</span>
+				<% elsif @moon_data.status == 2 %>
+				<span class="badge" title='Multiple Entries'>✔</span>
+				<% elsif @moon_data.status == 4 %>
+				<span class="badge" title='Admin Approved'>★</span>
+				<% end %>
 
 			</div>
 <div class="progress">
@@ -26,7 +33,7 @@
 	<% end %>
 	<% @progress_meter = @progress_meter + data[1].to_f %>
 
-	<div class="progress-bar progress-bar-striped <%= @progressbar_class %>" role="progressbar" style="width: <%= (data[1].to_f).to_s %>%" aria-valuenow="<%= data[1].to_s %>" aria-valuemin="0" aria-valuemax="100">Test</div>
+	<div class="progress-bar progress-bar-striped <%= @progressbar_class %> " title="<%= data.product[0][0].to_s %>" role="progressbar" style="width: <%= (data[1].to_f).to_s %>%" aria-valuenow="<%= data[1].to_s %>" aria-valuemin="0" aria-valuemax="100">Test</div>
 	<% end %>
 </div>
 
@@ -42,5 +49,16 @@
 		<div class="card-body col-md-4">
 			<%= @moon_output.html_safe %>
 		</div>
+		<%= link_to 'Show More', {:controller => "toolbox", :action => "info", :search => @moon_data.moon_id.to_s }, class: "btn btn-default float-right", id: "" %>
+		<div>
+				<% if @moon_data.status == 1 %>
+				<span class="badge" title='Individual Entry'>⚑</span> Individual Entry - Only one entry has been provided for this location.  Additional survey reccomended.
+				<% elsif @moon_data.status == 2 %>
+				<span class="badge" title='Multiple Entries'>✔</span> Multiple Entries - Multiple identicle entries, concider location validated.
+				<% elsif @moon_data.status == 4 %>
+				<span class="badge" title='Admin Approved'>★</span> Admin Approved - This location has been edited by site admins and is validated.
+				<% end %>
+		</div>
+
 	</div>
 </div>

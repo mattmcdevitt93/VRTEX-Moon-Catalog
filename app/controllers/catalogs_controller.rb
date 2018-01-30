@@ -58,9 +58,14 @@ class CatalogsController < ApplicationController
   def destroy
     @catalog.destroy
     respond_to do |format|
-      format.html { redirect_to catalogs_url, notice: 'Catalog was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Catalog was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def approve
+      Rails.logger.info 'Approve Entry: ' + catalog_params.id.to_s
+
   end
 
   private

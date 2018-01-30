@@ -13,6 +13,7 @@
 //= require.bootstrap.min
 //= require jquery
 //= require jquery_ujs
+//= require Chart.bundle
 //
 //= require app
 //= require_tree .

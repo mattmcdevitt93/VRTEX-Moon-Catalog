@@ -4,13 +4,34 @@ body {
 }
 
 div {
-	/*border: 1px solid #000;*/
+	border: 1px solid #000;
 	padding: 5px;
 }
 
 td {
 	padding: 5px !important;
 	border-bottom: 1px solid #000;
+}
+th {
+	padding-right: 15px !important;
+}
+
+.opacity-90 {
+	opacity: .9;
+}
+.opacity-75 {
+	opacity: .75;
+}
+.opacity-50 {
+	opacity: .5;
+}
+.opacity-25 {
+	opacity: .25;
+}
+
+.mb-0{
+margin-top: 0px !important;
+margin-bottom: 0px !important;
 }
 
 #basic-addon2 {
@@ -183,4 +204,25 @@ td {
 
 .material_listing {
 	padding: 2px;
+}
+
+.flagged_row {
+	background-color: #D3D3D3;
+}
+
+#pie-chart {
+	height: 350px !important;
+	width: 450px !important;
+	/*float: right;*/
+	border: 1px solid #000;"
+}
+.info_table {
+	color: #000 !important;
+}
+.value_cell {
+	padding-left: 35px !important;
+}
+
+.repro_breakdown {
+	width: 250px;
 }

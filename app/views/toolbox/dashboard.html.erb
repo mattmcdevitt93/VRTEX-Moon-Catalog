@@ -1,16 +1,25 @@
-Dashboard
+<h3>Dashboard</h3>
+<p><%= link_to 'User Index', user_index_path, class: "btn btn-default", id: ""  %> <strong>User Count:</strong> <%= @users_size %></p>
+
+<p><%= link_to 'Entry Index', entries_path, class: "btn btn-default", id: ""  %> <strong>Entry Count: </strong><%= @entry_size %></p>
+
 <p>
-<%= link_to 'User Index', user_index_path %>
+	<%= link_to 'Moon Index', moons_path, class: "btn btn-default", id: ""  %>
+	<%= link_to "Moon Parse", {:controller => "toolbox", :action => "dashboard", :moon_parse => true }, class: "btn btn-warning", id: "" %>
+	<strong>Moons Size:</strong> <%= @moons_size %>
+</p>
+
+<p>
+	<%= link_to 'Catalog Index', catalogs_path, class: "btn btn-default", id: "" %>
+	<%= link_to "Catalog Parse", {:controller => "toolbox", :action => "dashboard", :catalog_parse => true }, class: "btn btn-warning", id: "" %>
+	<strong>Catalog Size:</strong> <%= @catalog_size %>
 </p>
 <p>
-<%= link_to "Moon Parse", {:controller => "toolbox", :action => "dashboard", :moon_parse => true }, class: "", id: "" %>
+		<%= link_to 'Universe Index', universes_path, class: "btn btn-default" %>
+		<%= link_to "Universe List Compile", {:controller => "toolbox", :action => "dashboard", :universe_update => true }, class: "btn btn-warning", id: "", data: { confirm: "Are you sure? this is going to take a bloody long time..." } %>
+		<strong>Universe Size:</strong> <%= @universe_size %>
 </p>
-<p>
-<%= link_to "Catalog Parse", {:controller => "toolbox", :action => "dashboard", :catalog_parse => true }, class: "", id: "" %>
-</p>
-<p>
-<%= link_to "Universe List Compile", {:controller => "toolbox", :action => "dashboard", :universe_update => true }, class: "", id: "", data: { confirm: "Are you sure? this is going to take a bloody long time..." } %>
-</p>
-<p>
-	<%= link_to 'Universe Index', universes_path %>
-</p>
+<%= link_to 'Flagged Entries', flagged_path, class: "btn btn-danger" %>
+<%= link_to 'User Dashboard', user_dashboard_path, class: "btn btn-danger" %>
+
+

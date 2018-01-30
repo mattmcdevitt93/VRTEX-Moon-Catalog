@@ -5,14 +5,26 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+  # def self.Admin_initialize
+  #   Rails.logger.info 'Admin Check'
+  #   initial_user = User.where(admin: true)
+  #   if initial_user == []
+  #     Rails.logger.info "Resetting Admin Permissions"
+  #     user = User.find(1)
+  #     user.update(admin: true)
+  #   end
+  # end
 
-  def self.Admin_initialize
-    Rails.logger.info 'Admin Check'
-    initial_user = User.where(admin: true)
-    if initial_user == []
-      Rails.logger.info "Resetting Admin Permissions"
-      user = User.find(1)
-      user.update(admin: true)
+  before_save :initial_admin!, on: :create
+
+  scope :admins, -> { where(admin: true) }
+
+  private
+
+  def initial_admin!
+    @admins = User.where('admin' => true)
+    if @admins.blank? == true
+      self.admin = true
     end
   end
 

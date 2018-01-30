@@ -1,0 +1,145 @@
+<% if @catalogs.empty? == false %>
+<h2><%= @catalogs[0].moon_esi %></h2>
+
+
+<div class='col-xs-7 col-sm-7 col-md-7'>
+<table class='col-xs-12 col-sm-12 col-md-12' id='data_table'>
+  <h3>Material Breakdown</h3>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Percent</th>
+      <th>Estimated Value per unit</th>
+      <th>Percent of cost</th>
+      <th>Estimated Total per cycle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @total=0 %>
+    <% @mats_breakdown.each_with_index do |material, i| %>
+
+    <tr class="<%= Toolbox.material_check(material.product) %> opacity-90 info_table">
+      <td><%= material.product %></td>
+      <td id="percent_<%= i %>" price_data="<%= @percent = material.percent.round(4)*100.to_f %>" ><%= @percent %> </td>
+      <td id="product_price_<%= i %>" price_data="<%= @market = (Toolbox.EvE_Market(material.product_id).to_i)%>" ><%= number_with_delimiter(@market, :delimiter => ',') %> ISK</td>
+      <% @total = @total + @market.to_i %>
+      <td id="total_percent_<%= i %>">% of Cost</td>
+
+      <td id="total_price_<%= i %>" class='value_cell'>*</td>
+    </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td id='total_unit_value' class='hidden' price_data="<%= @total %>" ><%= number_with_delimiter(@total, :delimiter => ',') %> ISK</td>
+      <td>
+        <div id="slider">
+          <div id="custom-handle" class="ui-slider-handle"></div>
+        </div></td>
+      <td id='total_value' class='value_cell'>Total Value</td>
+    </tr>
+  </tbody>
+</table>
+<div>
+* These prices are based on the current game adjusted price of each item (the prices from that stock ticker on the market window).  This does not accuratly reflect the prices in Jita, Amarr, or any other market hub.  In addition this pricing is based on the raw materials found on the moon which are heavy and in most cases processed on site.  
+</div>
+<table>
+  <tr>
+  <th>Reprocess Material</th>
+  </tr><tr>
+  <% @repro_breakdown.each_with_index do |data, i| %>
+    <td class='repro_breakdown' ><%= data.to_s %></td>
+    <% if (i+1) % 8 == 0 %>
+    </tr><tr>
+    <% end %>
+  
+  <% end %>
+</table>
+* This does not include normal rocks, it only includes moon rocks and residual minerals.
+</div>
+
+<% @mats_breakdown.each do |material| %>
+<% @chart_array[0].push(material.product) %>
+<% @chart_array[1].push((material.percent.round(4)*100).to_f) %>
+<% @chart_array[2].push(Toolbox.material_color_check(material.product)) %>
+<% end %>
+<% Rails.logger.info "Chart Array: " + @chart_array[0].inspect.html_safe %>
+
+<canvas id="pie-chart" width="450" height="350"></canvas>
+<script>
+  new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+      labels: <%= @chart_array[0].inspect.html_safe %>,
+      datasets: [{
+        backgroundColor: <%= @chart_array[2].inspect.html_safe %>,
+        data: <%= @chart_array[1].inspect.html_safe %>, 
+      }]
+    },
+    options: {
+      cutoutPercentage: 50,
+
+      tooltips: {
+        bodyFontSize: 64
+      }, 
+      legend: {
+        display: true,
+        position: 'left',
+        labels: {
+          fontSize: 48
+        }
+      }
+    }
+  });
+</script>
+
+<% if current_user.admin == true %>
+  <div class="card-header" role="tab">
+    <h5 class="mb-0">
+      <div class="collapsed btn btn-default" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+        Admin Data
+      </h5>
+      <div id="collapse" class="collapse row" role="tabpanel" aria-labelledby="heading" data-parent="#accordion">
+        <div class="card-body">
+          <table>
+            <h3>All Entries for <%= @catalogs[0].moon_esi %> (<%= @catalogs[0].moon_id %>)</h3>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>System</th>
+                <th>Product ID</th>
+                <th>Product</th>
+                <th>Percent</th>
+                <th>Status</th>
+                <th>Flag</th>
+                <th colspan="2"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @catalogs.each do |catalog| %>
+              <tr>
+                <td><%= catalog.id %></td>
+                <td><%= catalog.system_esi %></td>
+                <td><%= catalog.product_id %></td>
+                <td><%= catalog.product %></td>
+                <td><%= catalog.percent %></td>
+                <td><%= catalog.status %></td>
+                <td><%= catalog.flag %></td>
+                <% if current_user.admin == true %>
+                <td><%= link_to 'Edit', edit_catalog_path(catalog) %></td>
+                <td><%= link_to 'Destroy', catalog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  <% end %>
+
+  <% end %>

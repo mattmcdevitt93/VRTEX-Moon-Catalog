@@ -4,6 +4,7 @@ var Module = Module || {};
 $(document).ready(function() {
 	console.log('Ready!')
 	Module.bindings();
+	Module.update_price_table(48)
 });
 
 Module.bindings = function () {
@@ -63,7 +64,42 @@ Module.bindings = function () {
 		}
 	);
 
+	var handle = $( "#custom-handle" );
+    $( "#slider" ).slider({
+      create: function() {
+        handle.text( $( this ).slider( "value" ) );
+      },
+      slide: function( event, ui ) {
+        handle.text( ui.value );
+
+
+		Module.update_price_table(ui.value)
+      },
+      min: 150,
+      // max: 155
+      max: 1400
+    });
+
 }
+
+Module.update_price_table = function(hours) {
+	var total_value = 0;
+    var count = ($('#data_table tr').length)-2;
+    var total_unit_value = $('#total_unit_value').attr("price_data")
+	for (var i = 0; i <= count-1; i++) {
+		var price = $('#product_price_'+i).attr("price_data");
+		// console.log('update prices! ' + i + ' - ' + (price * hours));
+		$('#total_price_'+i).html(((price * 200) * hours).toLocaleString()  + " ISK")
+		total_value = total_value + ((price * 200) * hours)
+
+		var price = $('#product_price_'+i).attr("price_data");
+		$('#total_percent_'+i).html( ((price / total_unit_value).toFixed(2) * 100).toFixed(0) + " ")
+	}
+	$('#total_value').html(total_value.toLocaleString() + " ISK")
+
+}
+
+
 
 // Module.chart_load = function (name, data) {
 // google.charts.load('current', {'packages':['corechart']});

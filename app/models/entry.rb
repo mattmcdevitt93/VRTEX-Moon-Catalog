@@ -1,7 +1,6 @@
 class Entry < ActiveRecord::Base
 	 validates :content, :presence => true
 
-
 	def self.format_check (content, id, user)
 		Rails.logger.info "Format Verfication Check"
 		formatted_content = content.split("\n")

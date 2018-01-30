@@ -6,7 +6,7 @@ class MoonsController < ApplicationController
   # GET /moons
   # GET /moons.json
   def index
-    @moons = Moon.all
+    @moons = Moon.all.paginate(:page => params[:page], :per_page => 75).order(id: :desc)
   end
 
   # GET /moons/1
