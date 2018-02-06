@@ -3,8 +3,7 @@ User Index
 
 	<% @user.each do |user| %>
 	<div>
-		<%= user.id %> | <%= user.email %> <% if user.admin == true %>*<% end %>
+		<%= user.id %> | <%= user.email %> | <%= user.flags.to_s %> <% if user.admin == true %>*<% end %>
 
 	</div>
-
 	<% end %>

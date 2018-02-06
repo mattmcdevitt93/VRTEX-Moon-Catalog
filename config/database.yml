@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: VRTEX_Moon_Registry_production
-  username: VRTEX_Moon_Registry
+  username: <%= ENV['VRTEX_MOON_REGISTRY_DATABASE_USER'] %>
   password: <%= ENV['VRTEX_MOON_REGISTRY_DATABASE_PASSWORD'] %>

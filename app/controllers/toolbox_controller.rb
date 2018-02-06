@@ -1,6 +1,7 @@
 class ToolboxController < ApplicationController
-	before_filter :authenticate_user!, only: [:dashboard, :user_index, :catalog, :search, :user_catalog]
+	before_filter :authenticate_user!, only: [:dashboard, :user_index, :catalog, :search, :user_catalog, :regions]
 	before_action :admin_check, only: [:user_index, :dashboard, :user_dashboard, :flagged]
+	before_action :approval_check, only: [:search, :systems, :regions]
 
 	def landing
 		
@@ -77,6 +78,12 @@ class ToolboxController < ApplicationController
 			redirect_to dashboard_path
 		end
 
+		if params[:flag_count_reset] == 'true' and current_user.admin == true
+		 	@user = User.all
+		 	@user.each do |i|
+		 		i.update(flags: 0)
+		 	end
+		end
 	end
 	def user_index
 		@user = User.paginate(:page => params[:page], :per_page => 50).order(id: :desc)

@@ -23,6 +23,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-      params.require(:user).permit(:id, :admin, :blacklist)
+      params.require(:user).permit(:id, :admin, :blacklist, :approved_user)
     end
 end

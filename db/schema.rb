@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 20180118194421) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.boolean  "blacklist",              default: false
+    t.boolean  "approved_user",          default: false
+    t.integer  "flags",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

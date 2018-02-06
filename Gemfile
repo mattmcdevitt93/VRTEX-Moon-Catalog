@@ -38,6 +38,7 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'rufus-scheduler'
 gem 'rails_12factor', group: :production
 gem 'octicons_helper'
+gem 'figaro'
 
 
 group :development, :test do

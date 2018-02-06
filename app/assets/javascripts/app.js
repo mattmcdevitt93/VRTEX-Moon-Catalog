@@ -4,7 +4,7 @@ var Module = Module || {};
 $(document).ready(function() {
 	console.log('Ready!')
 	Module.bindings();
-	Module.update_price_table(48)
+	Module.update_price_table(150)
 });
 
 Module.bindings = function () {

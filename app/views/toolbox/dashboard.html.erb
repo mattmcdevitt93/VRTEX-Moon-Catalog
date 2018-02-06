@@ -21,5 +21,5 @@
 </p>
 <%= link_to 'Flagged Entries', flagged_path, class: "btn btn-danger" %>
 <%= link_to 'User Dashboard', user_dashboard_path, class: "btn btn-danger" %>
-
+	<%= link_to "flag count reset", {:controller => "toolbox", :action => "dashboard", :flag_count_reset => true }, class: "btn btn-danger", id: "" %>
 

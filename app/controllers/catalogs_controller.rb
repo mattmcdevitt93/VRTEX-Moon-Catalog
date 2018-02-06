@@ -3,6 +3,7 @@ class CatalogsController < ApplicationController
   before_filter :authenticate_user!
   before_action :admin_check
 
+
   # GET /catalogs
   # GET /catalogs.json
   def index

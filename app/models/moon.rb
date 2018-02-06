@@ -48,7 +48,12 @@ class Moon < ActiveRecord::Base
 				catalog_entry.save
 
 			else
+				# Rails.logger.info "Flag Counter: " + moon.user_id.to_s
+
 				moon.update(validation: false)
+				# user = User.find(moon.user_id.to_i)
+				# total_flags = user.flags + 1
+				# # user.update(flags: total_flags)
 			end
  			rescue
 				Rails.logger.info "Moon Parse Error for " + moon.id.to_s

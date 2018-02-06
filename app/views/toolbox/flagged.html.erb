@@ -1,7 +1,8 @@
 <h2>Flagged Entries</h2>
-<%= will_paginate @catalog %>
 
 <% if @catalog.blank? == true %>
+<%= will_paginate @catalogs %>
+
 	<table>
 	  <thead>
 	    <tr>

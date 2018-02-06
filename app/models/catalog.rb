@@ -47,8 +47,13 @@ class Catalog < ActiveRecord::Base
 								end
 							else
 								@target_moon.each do |target|
+									if target.flag == nil
+										user = User.find(target.user_id.to_i)
+										total_flags = user.flags.to_i + 1
+										Rails.logger.info "Flag Counter " + total_flags.to_s
+										user.update(flags: total_flags)
+									end
 									target.update(status: 3, flag: true)
-
 								end
 							end
 

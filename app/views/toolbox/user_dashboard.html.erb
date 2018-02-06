@@ -2,18 +2,34 @@
 <%= will_paginate @user %>
 
 <% @user.each_with_index do |user, i| %>
-<div class='row'>
-	<%= form_for user do |f| %>
-		<div class='col-md-10'>
-		<%= user.id.to_s %> | 
-		<%= user.email.to_s %> | 
-		<%= f.hidden_field :id %>
-		<% @entries = Entry.where('user' => user.id) %>
-		Entries: <%= @entries.to_s %>
-		Blacklist: <%= f.check_box :blacklist %> | 
-		Admin: <%= f.check_box :admin %>
+<div class='row dashboard_headder'>
+	<div class='col-md-12'>
+		<!-- Pull down Headder -->
+		<%= form_for user do |f| %>
+		<div class='col-md-8' >
+			<%= user.id.to_s %> | 
+			<%= user.email.to_s %>
+			<span class='badge collapse' data-toggle="collapse" href="#collapse_<%= i.to_s %>" aria-expanded="false" aria-controls="collapse_<%= i.to_s %>">⇩</span>
 		</div>
-		<%= f.submit "Update", :class => "btn btn-default float-right", data: { confirm: 'Are you sure you want to do this)?' } %>
-	<% end %>
+			<div class='col-md-4'>
+				<%= f.hidden_field :id %>
+				<span class="badge" title=''>Approval: <%= f.check_box :approved_user %></span>
+				<span class="badge" title=''>Blacklist: <%= f.check_box :blacklist %></span>
+				<span class="badge" title=''>Admin: <%= f.check_box :admin %></span>
+				<%= f.submit "Update", :class => "btn btn-default", data: { confirm: 'Are you sure you want to do this)?' } %>
+			</div>
+		<% end %>
+
+
+	</div>
+	<div id="collapse_<%= i.to_s %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= i.to_s %>" data-parent="#accordion">
+		<!-- Detailed User info -->
+		<% @entries = Entry.where(user: user.id).count %>
+		<% @catalog_posts = Catalog.where(user_id: user.id).count %>
+
+		Entries: <%= @entries.to_s %> | 
+		Catalog Posts: <%= @catalog_posts.to_s %> | 
+		Flags:  <%= user.flags.to_s %>
+	</div>
 </div>
 <% end %>

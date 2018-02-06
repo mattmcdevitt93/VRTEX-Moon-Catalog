@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   before_action :admin_check, only: [:index, :show, :edit, :destroy, :update]
+  before_action :blacklist_check, only: [:new, :create, :edit, :destroy, :update]
 
 
   # GET /entries
